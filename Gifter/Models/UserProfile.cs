@@ -18,7 +18,10 @@ namespace Gifter.Models
 
         public string ImageUrl { get; set; }
 
+        public string Bio { get; set; }
+
         [Required]
         public DateTime DateCreated { get; set; }
+
     }
 }

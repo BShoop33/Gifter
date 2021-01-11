@@ -1,87 +1,62 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using Gifter.Data;
+using Gifter.Repositories;
+using Gifter.Models;
 
 namespace Gifter.Controllers
 {
-    public class PostController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class PostController : ControllerBase
     {
-        // GET: PostController
-        public ActionResult Index()
+        private readonly IPostRepository _postRepository;
+        public PostController(IPostRepository postRepository)
         {
-            return View();
+            _postRepository = postRepository;
         }
 
-        // GET: PostController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public IActionResult Get()
         {
-            return View();
+            var posts = _postRepository.GetAll();
+            return Ok(posts);
         }
 
-        // GET: PostController/Create
-        public ActionResult Create()
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            return View();
+            var post = _postRepository.GetById(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return Ok(post);
         }
 
-        // POST: PostController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Post(Post post)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _postRepository.Add(post);
+            return CreatedAtAction("Get", new { id = post.Id }, post);
         }
 
-        // GET: PostController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Post post)
         {
-            return View();
+            if (id != post.Id)
+            {
+                return BadRequest();
+            }
+
+            _postRepository.Update(post);
+            return NoContent();
         }
 
-        // POST: PostController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PostController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PostController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _postRepository.Delete(id);
+            return NoContent();
         }
     }
 }

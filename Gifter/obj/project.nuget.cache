@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "w9hC9YRXNJKTVwzfjYnSeQ1i1xRi2j+c4c/9wFYiIkhBlyY7CDlKHUwh1FnwH3DKF8W31iKqlCInZ6WZpCcyCQ==",
+  "dgSpecHash": "60bw94OU2ABHcgrB6fVNJ8u+eLFklduQlp0Kd/9LM+xRz8szsWFofjIuxwrEpEKV9wYE8ZM4MA0dClkzgJZvjw==",
   "success": true,
   "projectFilePath": "C:\\Users\\braxt\\workspace\\Gifter\\Gifter\\Gifter\\Gifter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\braxt\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\braxt\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.1\\microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",
-    "C:\\Users\\braxt\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.1\\microsoft.aspnetcore.authentication.openidconnect.5.0.1.nupkg.sha512",
+    "C:\\Users\\braxt\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
+    "C:\\Users\\braxt\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.0\\microsoft.aspnetcore.authentication.openidconnect.5.0.0.nupkg.sha512",
     "C:\\Users\\braxt\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\braxt\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.1\\microsoft.aspnetcore.jsonpatch.5.0.1.nupkg.sha512",
     "C:\\Users\\braxt\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.1\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.1.nupkg.sha512",

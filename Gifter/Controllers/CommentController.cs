@@ -11,7 +11,7 @@ namespace Gifter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CommentController : ControllerBase
+    public class CommentController : Controller
     {
         private readonly ICommentRepository _commentRepository;
         public CommentController(ICommentRepository commentRepository)
@@ -22,7 +22,7 @@ namespace Gifter.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var comment = _commentRepository.GetAll();
+            var comment = _commentRepository.GetAll().OrderBy(p => p.PostId);
             return Ok(comment);
         }
 
@@ -37,21 +37,16 @@ namespace Gifter.Controllers
             return Ok(comment);
         }
 
-        [HttpGet("{postid}")]
-        public IActionResult GetByPostId(int id)
-        {
-            var comment = _commentRepository.GetByPostId(id);
-            if (comment == null)
-            {
-                return NotFound();
-            }
-            return Ok(comment);
-        }
-
-
-
-
-
+        //[HttpGet("{id}")]
+        //public IActionResult GetByPostId(int id)
+        //{
+        //    var comment = _commentRepository.GetByPostId(id);
+        //    if (comment == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(comment);
+        //}
 
 
 

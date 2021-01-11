@@ -19,8 +19,7 @@ namespace Gifter.Repositories
 
         public List<Comment> GetAll()
         {
-            return _context.Comment
-                .ToList();
+            return _context.Comment.ToList();
         }
 
         public Comment GetById(int id)
@@ -29,11 +28,11 @@ namespace Gifter.Repositories
                 .FirstOrDefault(p => p.Id == id);
         }
 
-        public Comment GetByPostId(int id)
-        {
-            return _context.Comment
-                .FirstOrDefault(p => p.Id == id);
-        }
+        //public Comment GetByPostId(int id)
+        //{
+        //    return _context.Comment
+        //        .FirstOrDefault(p => p.PostId == id);
+        //}
 
         public void Add(Comment comment)
         {

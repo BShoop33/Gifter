@@ -10,7 +10,7 @@ namespace Gifter.Models
     {
         public int Id { get; set; }
 
-        public string UserProfileId { get; set; }
+        public int UserProfileId { get; set; }
 
         public int PostId { get; set; }
 

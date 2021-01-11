@@ -14,7 +14,7 @@ namespace Gifter.Repositories
         void Update(Comment comment);
 
         void Delete(int id);
-        
-        Comment GetByPostId(int id);
+
+        //Comment GetByPostId(int id);
     }
 }

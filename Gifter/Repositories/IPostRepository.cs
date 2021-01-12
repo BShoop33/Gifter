@@ -1,4 +1,5 @@
 ﻿using Gifter.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Gifter.Repositories
@@ -12,5 +13,6 @@ namespace Gifter.Repositories
         void Delete(int id);
 
         List<Post> Search(string q, bool sortDesc);
+        List<Post> Since(DateTime dateInput, bool sortDesc);
     }
 }

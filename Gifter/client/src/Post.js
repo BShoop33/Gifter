@@ -6,6 +6,7 @@ export const Post = ({ post }) => {
     return (
         <Card className="m-4">
             <p className="text-left px-2 font-weight-bold">Posted by: {post.userProfile.name}</p>
+            <p className="text-left px-2 font-weight-bold">Date Created: </p>
             <CardImg className="px-4" top src={post.imageUrl} alt={post.title} />
             <CardBody>
                 <p>

@@ -20,7 +20,6 @@ namespace Gifter.Repositories
         {
             return _context.Post
                 .Include(p => p.UserProfile)
-                .Take(3)
                 .OrderByDescending(p => p.DateCreated)
                 .ToList();
         }

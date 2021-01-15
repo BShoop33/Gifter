@@ -85,6 +85,9 @@ export const PostForm = () => {
                             type="button"
                             className="ml-4"
                             style={{ width: 80 }}
+                            onClick={() => {
+                                history.push(`/`)
+                            }}
                         >
                             Cancel
                         </Button>

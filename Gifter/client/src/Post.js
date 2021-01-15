@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardImg } from "reactstrap"
+import { Link } from "react-router-dom";
 
 export const Post = ({ post }) => {
     const [comments, setComments] = useState([]);
@@ -24,6 +25,9 @@ export const Post = ({ post }) => {
                 <p>{post.caption}</p>
                 <p>{identity}</p>
                 <p>{comments}</p>
+                <Link to={`/posts/${post.id}`}>
+                    <strong>{post.title}</strong>
+                </Link>
             </CardBody>
         </Card>
     );

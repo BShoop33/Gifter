@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Jumbotron, Form } from "reactstrap"
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import Moment from "react-moment";
 
 export const PostForm = () => {
@@ -8,7 +8,7 @@ export const PostForm = () => {
     const [title, setTitle] = useState("");
     const [caption, setCaption] = useState("");
     const [userProfileId, setUserProfileId] = useState("");
-    // const history = useHistory();
+    const history = useHistory();
 
     const addPost = (post) => {
         return fetch('/api/Post', {
@@ -27,7 +27,7 @@ export const PostForm = () => {
             userProfileId: +userProfileId,
         };
         addPost(post)
-        // .then(() => history.push("/"))
+            .then(() => history.push("/"))
     };
 
     return (
@@ -70,16 +70,19 @@ export const PostForm = () => {
                     </Form>
                     <Row className="ml-1 mt-3">
                         <Button
-                            onClick={submit}
+                            onClick={post => {
+                                post.preventDefault()
+                                submit()
+                            }}
                             color="success"
-                            type="submit"
+                            type="button"
                             style={{ width: 80 }}
                         >
                             Save
                         </Button>
                         <Button
                             color="danger"
-                            type="submit"
+                            type="button"
                             className="ml-4"
                             style={{ width: 80 }}
                         >

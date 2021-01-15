@@ -8,15 +8,11 @@ export const PostList = () => {
 
     useEffect(() => {
         if (searchTerms === "") {
-            console.log(searchTerms)
-            console.log("true")
             fetch('/api/Post')
                 .then(res => res.json())
                 .then(data => setPosts(data));
         }
         else {
-            console.log(searchTerms)
-            console.log("false")
             fetch(`/api/Post/search?q=${searchTerms}`)
                 .then(res => res.json())
                 .then(data => setPosts(data));

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Jumbotron, Form } from "reactstrap"
 import { useHistory } from "react-router-dom";
-// import Moment from "react-moment";
 
 export const PostForm = () => {
+
+    const history = useHistory();
+
     const [imageURL, setImageURL] = useState("");
     const [title, setTitle] = useState("");
     const [caption, setCaption] = useState("");
     const [userProfileId, setUserProfileId] = useState("");
-    const history = useHistory();
 
     const addPost = (post) => {
         return fetch('/api/Post', {

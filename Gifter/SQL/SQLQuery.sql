@@ -17,7 +17,7 @@ CREATE TABLE [Post] (
   [ImageUrl] nvarchar(255) NOT NULL,
   [Caption] nvarchar(255),
   [UserProfileId] integer NOT NULL,
-  [DateCreated] datetime NOT NULL
+  [DateCreated] datetime2 NOT NULL
 )
 GO
 
@@ -27,7 +27,7 @@ CREATE TABLE [UserProfile] (
   [Email] nvarchar(255) NOT NULL,
   [ImageUrl] nvarchar(255),
   [Bio] nvarchar(255),
-  [DateCreated] datetime NOT NULL
+  [DateCreated] datetime2 NOT NULL
 )
 GO
 
@@ -80,5 +80,9 @@ SET IDENTITY_INSERT [Comment] ON
 INSERT INTO [Comment]
   ([Id], [UserProfileId], [PostId], [Message])
 VALUES
-  (1, 2, 1, 'A comment is a comment is a comment');
+  (1, 1, 3, 'Test Comment Post ID 3'),
+  (2, 2, 1, 'Test Comment Post ID 1'),
+  (3, 1, 2, 'Test Comment Post ID 2'),
+  (4, 2, 4, 'Test Comment Post ID 4');
+
 SET IDENTITY_INSERT [Comment] OFF

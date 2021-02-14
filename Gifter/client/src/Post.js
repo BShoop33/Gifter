@@ -3,15 +3,16 @@ import { Card, CardBody, CardImg } from "reactstrap"
 import { Link } from "react-router-dom";
 
 export const Post = ({ post }) => {
+
     const [comments, setComments] = useState([]);
 
     let identity = post.id;
 
-    // useEffect(() => {
-    //     fetch(`/api/post/?q=${identity}`)
-    //         .then(res => res.json())
-    //         .then(data => setComments(data));
-    // })
+    useEffect(() => {
+        fetch(`/api/post/?q=${post.id}`)
+            .then(res => res.json())
+            .then(data => setComments(data));
+    }, [])
 
     return (
         <Card className="m-4" style={{ width: 1000 }}>
@@ -24,7 +25,6 @@ export const Post = ({ post }) => {
                 </p>
                 <p>{post.caption}</p>
                 <p>{identity}</p>
-                <p>{comments}</p>
                 <Link to={`/posts/${post.id}`}>
                     <strong>{post.title}</strong>
                 </Link>

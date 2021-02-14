@@ -50,30 +50,25 @@ namespace Gifter.Repositories
             _context.SaveChanges();
         }
 
-
-
         public List<Post> Search(string criterion, bool sortDescending)
         {
             var query = _context.Post
-                                .Include(p => p.UserProfile)
-                                .Where(p => p.Title.Contains(criterion) || p.Caption.Contains(criterion));
-                                
+                .Include(p => p.UserProfile)
+                .Where(p => p.Title.Contains(criterion) || p.Caption.Contains(criterion));
 
             return sortDescending
                 ? query.OrderByDescending(p => p.DateCreated).ToList()
                 : query.OrderBy(p => p.DateCreated).ToList();
         }
 
-
         public List<Post> Since(DateTime dateInput, bool sortDescending)
         {
             var date = _context.Post
-                                .Include(p => p.UserProfile)
-                                .Where(p => p.DateCreated >= dateInput);
+                .Include(p => p.UserProfile)
+                .Where(p => p.DateCreated >= dateInput);
             return sortDescending
                 ? date.OrderByDescending(p => p.DateCreated).ToList()
                 : date.OrderBy(p => p.DateCreated).ToList();
         }
-
     }
 }

@@ -4,7 +4,9 @@ import { useHistory, Link } from "react-router-dom";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 
 export default function Login() {
+
     const history = useHistory();
+
     const { login } = useContext(UserProfileContext);
 
     const [email, setEmail] = useState();
@@ -13,7 +15,7 @@ export default function Login() {
     const loginSubmit = (e) => {
         e.preventDefault();
         login(email, password)
-            .then(() => history.push("/"))
+            .then(() => history.push("/home"))
             .catch(() => alert("Invalid email or password"));
     };
 

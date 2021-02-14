@@ -1,10 +1,8 @@
 ﻿using Gifter.Data;
 using Gifter.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Gifter.Repositories
 {
@@ -27,6 +25,12 @@ namespace Gifter.Repositories
         {
             return _context.UserProfile
                 .FirstOrDefault(p => p.Id == id);
+        }
+
+        public UserProfile GetByFirebaseUserId(string firebaseUserId)
+        {
+            return _context.UserProfile
+                .FirstOrDefault(up => up.FirebaseUserId == firebaseUserId);
         }
 
         public void Add(UserProfile userProfile)

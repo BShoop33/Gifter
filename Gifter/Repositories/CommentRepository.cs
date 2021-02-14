@@ -1,10 +1,8 @@
 ﻿using Gifter.Data;
 using Gifter.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Gifter.Repositories
 {
@@ -28,11 +26,11 @@ namespace Gifter.Repositories
                 .FirstOrDefault(p => p.Id == id);
         }
 
-        //public Comment GetByPostId(int id)
-        //{
-        //    return _context.Comment
-        //        .FirstOrDefault(p => p.PostId == id);
-        //}
+        public Comment GetByPostId(int id)
+        {
+            return _context.Comment
+                .FirstOrDefault(p => p.PostId == id);
+        }
 
         public void Add(Comment comment)
         {

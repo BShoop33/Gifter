@@ -6,17 +6,17 @@ const Header = () => {
         <nav className="navbar navbar-expand navbar-dark bg-info">
             <Link to="/" className="navbar-brand">
                 GiFTER
-      </Link>
+        </Link>
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
                     <Link to="/" className="nav-link">
-                        Feed
-          </Link>
+                    Feed
+        </Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/posts/add" className="nav-link">
-                        New Post
-          </Link>
+                    New Post
+        </Link>
                 </li>
             </ul>
         </nav>

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Gifter.Data;
 using Gifter.Repositories;
 using Gifter.Models;
 using System;
@@ -65,7 +64,6 @@ namespace Gifter.Controllers
         {
             return Ok(_postRepository.Search(q, sortDesc));
         }
-
 
         [HttpGet("hottest")]
         public IActionResult Since(DateTime since, bool sortDesc)
